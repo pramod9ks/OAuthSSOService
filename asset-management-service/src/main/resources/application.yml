@@ -1,0 +1,38 @@
+spring:
+    datasource:
+        url: jdbc:h2:mem:testdb
+        driver-class-name: org.h2.Driver
+        username: sa
+        password:
+    h2:
+      console:
+        enabled: true
+        path: /h2-console 
+
+    jpa:
+        show-sql: true
+        hibernate:
+            ddl-auto: create
+            naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.H2Dialect
+    security:
+      oauth2:
+        client:
+          registration:
+            google:
+              clientId: 202851038268-oj268bigqij13pohsfmdoal1ov8p2rj7.apps.googleusercontent.com
+              clientSecret: a4o3qko6rq629ukU1jPiKCoa
+              redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+              scope:
+                - email
+                - profile
+           
+app:
+  auth:
+    tokenSecret: 926D96C90030DD58429D2751AC1BDBBC
+    tokenExpirationMsec: 864000000
+  oauth2:
+    authorizedRedirectUris:
+      #- http://localhost:3000/oauth2/redirect
